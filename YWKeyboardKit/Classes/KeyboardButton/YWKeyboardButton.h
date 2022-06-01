@@ -119,7 +119,7 @@ typedef NS_ENUM(NSUInteger, YWKeyboardButtonPosition) {
 
 @property (nonatomic, copy, nullable) UIImage *iconImage;
 
-
+@property (nonatomic, assign) NSInteger intCount;
 @end
 
 

@@ -220,6 +220,7 @@
     btn.dataSource = self;
     btn.input = kText;
     btn.textInput = _textInput;
+    btn.intCount = self.intCount;
     return btn;
 }
 //MARK: --- 长按 delete ----

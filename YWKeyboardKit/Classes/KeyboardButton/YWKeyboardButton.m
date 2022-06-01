@@ -390,6 +390,9 @@ replacementString:(NSString *)string
         // 保留规则: 小数点后2位
 //        NSString *stringRegex = @"^\\-?([1-9]\\d*|0)(\\.\\d{0,2})?$";
         NSString *stringRegex = [NSString stringWithFormat:@"^\\-?([1-9]\\d*|0)(\\.\\d{0,%zi})?$",digits];
+        if (self.intCount > 0) {
+            stringRegex = [NSString stringWithFormat:@"^\\-?([1-9]\\d{0, %zi}|0)(\\.\\d{0,%zi})?$", self.intCount,digits];
+        }
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", stringRegex];
         BOOL flag = [predicate evaluateWithObject:toString];
         if (!flag) {
