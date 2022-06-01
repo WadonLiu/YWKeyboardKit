@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign        ) BOOL effectiveDigit;
 /**保留几位小数，默认保留2位数*/
 @property (nonatomic, assign        ) NSInteger floatDigit;
-/**最多几位整数*/
-@property (nonatomic, assign        ) NSInteger intCount;
+
 
 /**带有小数点圆角样式键盘*/
 + (instancetype)getDecimalKeyboardShadowView:(id<UITextInput>)textInput;
@@ -31,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**不带有小数点分割线样式键盘*/
 + (instancetype)getNumKeyboardDividerView:(id<UITextInput>)textInput;
 
-
++ (instancetype)getDecimalKeyboardShadowView:(id<UITextInput>)textInput intCount:(NSInteger)intCount;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -21,6 +21,8 @@
 @property (nonatomic, strong          ) UIColor         *deleteColor;
 @property (nonatomic, strong, nullable) NSTimer *timer;
 
+/**最多几位整数*/
+@property (nonatomic, assign        ) NSInteger intCount;
 @end
 
 
@@ -60,7 +62,13 @@
 
 }
 
-
++ (instancetype)getDecimalKeyboardShadowView:(id<UITextInput>)textInput intCount:(NSInteger)intCount{
+    YWNumPadKeyboardView *keyboardView = [[YWNumPadKeyboardView alloc] initWithFrame:CGRectZero
+                                                                      inputViewStyle:UIInputViewStyleKeyboard
+                                                                           textInput:textInput
+                                                                            cellType:1 intCount:intCount];
+    return keyboardView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
                inputViewStyle:(UIInputViewStyle)inputViewStyle
@@ -73,6 +81,25 @@
         _space = 0.5;
         _downGrayEffect = YES;
         _floatDigit = 2;
+        [self sizeToFit];
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self createNumPadKeyboardView];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+               inputViewStyle:(UIInputViewStyle)inputViewStyle
+                    textInput:(id<UITextInput>)textInput
+                     cellType:(NSInteger)cellType intCount:(NSInteger)intCount{
+    self = [super initWithFrame:frame inputViewStyle:inputViewStyle];
+    if (self) {
+        _cellType = cellType;
+        _textInput = textInput;
+        _space = 0.5;
+        _downGrayEffect = YES;
+        _floatDigit = 2;
+        _intCount = intCount;
         [self sizeToFit];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self createNumPadKeyboardView];
