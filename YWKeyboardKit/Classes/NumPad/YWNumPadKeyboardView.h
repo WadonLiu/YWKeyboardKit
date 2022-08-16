@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)getNumKeyboardDividerView:(id<UITextInput>)textInput;
 
 + (instancetype)getDecimalKeyboardShadowView:(id<UITextInput>)textInput intCount:(NSInteger)intCount;
+
+/**不带有小数点圆角样式键盘*/
++ (instancetype)getNumKeyboardShadowView:(id<UITextInput>)textInput intCount:(NSInteger)intCount;
 @end
 
 NS_ASSUME_NONNULL_END
