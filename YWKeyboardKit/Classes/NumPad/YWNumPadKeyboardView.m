@@ -70,6 +70,14 @@
     return keyboardView;
 }
 
++ (instancetype)getNumKeyboardShadowView:(id<UITextInput>)textInput intCount:(NSInteger)intCount{
+    YWNumPadKeyboardView *keyboardView = [[YWNumPadKeyboardView alloc] initWithFrame:CGRectZero
+                                                                      inputViewStyle:UIInputViewStyleKeyboard
+                                                                           textInput:textInput
+                                                                            cellType:3 intCount:intCount];
+    return keyboardView;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
                inputViewStyle:(UIInputViewStyle)inputViewStyle
                     textInput:(id<UITextInput>)textInput
